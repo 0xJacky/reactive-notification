@@ -6,6 +6,8 @@ class DatabaseNotification extends \Illuminate\Notifications\DatabaseNotificatio
 {
     public function getDataAttribute()
     {
+        protected $hidden = ['notifiable'];
+        
         if (isset($this->attributes['data'])) {
             $data = json_decode($this->attributes['data'], true);
 
