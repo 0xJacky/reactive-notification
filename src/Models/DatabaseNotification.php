@@ -4,10 +4,10 @@ namespace Digitalcloud\ReactiveNotification\Models;
 
 class DatabaseNotification extends \Illuminate\Notifications\DatabaseNotification
 {
+    protected $hidden = ['notifiable'];
+    
     public function getDataAttribute()
-    {
-        protected $hidden = ['notifiable'];
-        
+    {  
         if (isset($this->attributes['data'])) {
             $data = json_decode($this->attributes['data'], true);
 
