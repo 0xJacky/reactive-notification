@@ -9,7 +9,7 @@ class DatabaseNotification extends \Illuminate\Notifications\DatabaseNotificatio
         if (isset($this->attributes['data'])) {
             $data = json_decode($this->attributes['data'], true);
 
-            if (isset($this->attributes['serialized']) && $this->attributes['serialized']) {
+            /*if (isset($this->attributes['serialized']) && $this->attributes['serialized']) {
                 $obj = unserialize($data['data']);
                 if (method_exists($obj, 'toDatabase')) {
                     return unserialize($data['data'])->toDatabase($this->notifiable);
@@ -18,7 +18,8 @@ class DatabaseNotification extends \Illuminate\Notifications\DatabaseNotificatio
                 }
             } else {
                 return $data;
-            }
+            }*/
+            return unserialize($data['data'])->toDatabase($this->notifiable);
         }
 
         return [];
