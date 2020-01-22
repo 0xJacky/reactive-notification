@@ -4,7 +4,7 @@ namespace Digitalcloud\ReactiveNotification\Models;
 
 class DatabaseNotification extends \Illuminate\Notifications\DatabaseNotification
 {
-    protected $hidden = ['notifiable'];
+    protected $hidden = ['notifiable', 'serialized'];
     
     public function getDataAttribute()
     {  
